@@ -12,6 +12,7 @@ class Greeter
      when "/change" 
      	 Rack::Response.new do |response|
      	 	response.set_cookie("greet", request.params["name"])
+     	 	response.redirect("/")
      	 end
      else Rack::Response.new("Not Found", 404)	
      end
