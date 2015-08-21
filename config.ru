@@ -2,4 +2,4 @@ require "greeter"
 
 use Rack::Reloader, 0
 
-run Greeter
+run Rack::Greeter.new([Rack::File.new("public"), Greeter])
