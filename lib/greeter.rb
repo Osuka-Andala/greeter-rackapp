@@ -26,4 +26,8 @@ class Greeter
 	
  end
 
+ def greet_name
+ 	request.cookies["greet"] || "World"	
+ end
+
 end
