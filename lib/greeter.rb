@@ -4,13 +4,15 @@ require "erb"
 class Greeter
 
  def self.call(env)
-		new(env)		
+		new(env).response		
  end
 
- def call(env)
+ def initialize(env)
     # [200, {"Content-Type" => "text/plain"}, ["Hello Rack"]]
      @request = Rack::Request.new(env)
+ end
 
+ def response
      case @request.path
      when "/" then Rack::Response.new(render("index.html.erb"))
      when "/change" 
