@@ -4,12 +4,16 @@ require "erb"
 class Greeter
 
  def self.call(env)
-		new(env).response		
+		new(env).response.finish
+		# called finish so that it gets returned, 
+		# converting it to the array format that rack expects		
  end
 
  def initialize(env)
     # [200, {"Content-Type" => "text/plain"}, ["Hello Rack"]]
      @request = Rack::Request.new(env)
+     # defined the request instance 
+     # so that it does not persist between requests
  end
 
  def response
