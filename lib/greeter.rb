@@ -3,6 +3,10 @@ require "erb"
 
 class Greeter
 
+ def self.call(env)
+		new(env)		
+ end
+
  def call(env)
     # [200, {"Content-Type" => "text/plain"}, ["Hello Rack"]]
      @request = Rack::Request.new(env)
